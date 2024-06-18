@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+            transition: background-color 0.5s;
+        }
+        #buzzerButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="buzzerButton">Buzzer</button>
+    <audio id="buzzerSound" src="./start_horn.wav" preload="auto"></audio>
+
+    <script>
+        document.getElementById('buzzerButton').addEventListener('click', function() {
+            var sound = document.getElementById('buzzerSound');
+            sound.play();
+            document.body.style.backgroundColor = 'green';
+            setTimeout(function() {
+                document.body.style.backgroundColor = 'white';
+            }, 15000);
+        });
+    </script>
+</body>
+</html>
