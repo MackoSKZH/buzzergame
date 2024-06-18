@@ -26,13 +26,21 @@
     <audio id="buzzerSound" src="./start_horn.wav" preload="auto"></audio>
 
     <script>
-        document.getElementById('buzzerButton').addEventListener('click', function() {
+        function triggerBuzzer() {
             var sound = document.getElementById('buzzerSound');
             sound.play();
             document.body.style.backgroundColor = 'green';
             setTimeout(function() {
                 document.body.style.backgroundColor = 'white';
             }, 15000);
+        }
+
+        document.getElementById('buzzerButton').addEventListener('click', triggerBuzzer);
+
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space') {
+                triggerBuzzer();
+            }
         });
     </script>
 </body>
